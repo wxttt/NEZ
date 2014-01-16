@@ -42,7 +42,7 @@ body{
     background-color: orange;
 }
 
-.user{
+.coder{
     height:50px;
     line-height: 50px;
     border-bottom: 1px solid #cfd0d1;
@@ -50,7 +50,7 @@ body{
     padding-left: 10px;
 }
 
-.user p, .user div{
+.coder p, .coder div{
     display: inline-block;
 }
 

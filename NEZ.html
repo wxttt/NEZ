@@ -16,13 +16,13 @@
     </div>
     <div class="container">
     {{#each users}}
-        {{> user}}
+        {{> coder}}
     {{/each}}
     </div>
 </template>
 
-<template name="user">
-    <div class="user">
+<template name="coder">
+    <div class="coder">
         <p class="name">{{name}}</p>
         <p class="score">{{score}}</p>
         <button type="button" class="add u-btn u-btn-white">+</button>
