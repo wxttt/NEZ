@@ -10,7 +10,7 @@
     <h1 class="header">正字系统</h1>
     <div class="board">
     <h2>公告板</h2>
-    {{#each events}}
+    {{#each event}}
         {{>event}}
     {{/each}}
     </div>
@@ -18,6 +18,9 @@
     {{#each users}}
         {{> coder}}
     {{/each}}
+    </div>
+    <div class="addCoder">
+        添加用户
     </div>
 </template>
 

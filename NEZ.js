@@ -6,9 +6,21 @@ if (Meteor.isClient) {
         return Coders.find({});
     }
 
-    Template.zheng.events = function(){
-        return Events.find({}, {sort: {time: -1}, limie: 5});
+    Template.zheng.event = function(){
+        return Events.find({}, {sort: {time: -1}, limit: 5});
     }
+
+    Template.zheng.events({
+        'click .addCoder': function(event){
+            var username = prompt("请输入你的名字");
+            if(!!username){
+                Coders.insert({name: username, score: 0});
+                Events.insert({name: username, event: '加入正字系统，开始了BG之旅~', time: new Date().getTime()});
+            }else{
+                alert('你咋不写你的名字呢~不写名字怎么BG呢！')
+            }
+        }
+    })
 
 
     Template.coder.events({
@@ -17,7 +29,10 @@ if (Meteor.isClient) {
             Events.insert({name:this.name, event: '被狠狠的加了一笔!', time: new Date().getTime()});
         },
         'click .minus': function(_event){
-            console.log('min');
+            if(this.score<=0){
+                alert('亲，已经0笔了，真么不能再少了~');
+                return;
+            }
             Coders.update({_id:this._id}, {$inc: {score: -1}})
             Events.insert({name:this.name, event: '贱贱的减去了一笔!', time: new Date().getTime()});
         },
